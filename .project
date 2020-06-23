@@ -26,6 +26,11 @@
 	</natures>
 	<linkedResources>
 		<link>
+			<name>ext/waveshare/examples</name>
+			<type>2</type>
+			<location>/home/daniel/workspace/e-Paper/RaspberryPiAndJetsonNano/c/examples</location>
+		</link>
+		<link>
 			<name>ext/waveshare/epaper/Config</name>
 			<type>2</type>
 			<locationURI>WAVESHARE_LIB/Config</locationURI>
