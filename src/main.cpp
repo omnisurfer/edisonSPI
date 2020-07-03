@@ -57,7 +57,7 @@ int main() {
 		Paint_NewImage(BlackImage, EPD_4IN2_WIDTH, EPD_4IN2_HEIGHT, 0, WHITE);
 		Paint_SetScale(4);
 #endif
-#if 1
+#if 0
 		Paint_Clear(WHITE);
 		Paint_DrawPoint(10, 80, BLACK, DOT_PIXEL_1X1, DOT_STYLE_DFT);
 	    Paint_DrawPoint(10, 90, BLACK, DOT_PIXEL_2X2, DOT_STYLE_DFT);
@@ -89,11 +89,12 @@ int main() {
 		DEV_Delay_ms(2000);
 #endif
 
-	//EPD_4IN2_Clear();
-ca	Paint_Clear(WHITE);
-	GUI_ReadBmp_4Gray("/media/sdcard/helloWorld/pic/AnimeGirl.bmp", 0, 0);
+#if 1
+	Paint_Clear(WHITE);
+	GUI_ReadBmp_4Gray("/media/sdcard/helloWorld/pic/10x10.bmp", 100, 100);
 	EPD_4IN2_4GrayDisplay(BlackImage);
-	DEV_Delay_ms(1000 * 20);
+	DEV_Delay_ms(1000 * 2);
+#endif
 
 #if 0
 	GUI_ReadBmp_4Gray("/media/sdcard/helloWorld/pic/4in2_Scale.bmp", 0, 0);
