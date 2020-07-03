@@ -20,44 +20,6 @@
 using namespace std;
 
 int main() {
-	cout << "Hello World!!!!" << endl; // prints Hello World
-
-	//debug spi code
-	/*
-	edisonSPI = mraa_spi_init(0);
-	//mraa_spi_mode(edisonSPI, MRAA_SPI_MODE0);
-	//mraa_spi_frequency(edisonSPI, 10e6);
-	//mraa_spi_lsbmode(edisonSPI, 0);
-	//mraa_spi_bit_per_word(edisonSPI, 8);
-
-    uint8_t data;
-    int recv_int;
-    int i;
-
-    while(1) {
-		for(i = 0; i < 100; i++) {
-			data = i;
-			recv_int = mraa_spi_write(edisonSPI, data);
-			printf("Received: %d\n", recv_int);
-			usleep(2000);
-		}
-    }
-	 */
-	// debug pin code
-
-	/*
-	mraa_gpio_context testPin = mraa_gpio_init(3);
-	cout << "mode result: " << mraa_gpio_mode(testPin, MRAA_GPIO_PULLUP) << endl;
-	cout << "dir result: " << mraa_gpio_dir(testPin, MRAA_GPIO_OUT) << endl;
-	bool state = false;
-	for(int i = 0; i < 60; i++) {
-		cout << "write result: " << mraa_gpio_write(testPin, state) << endl;
-		state = !state;
-		usleep(1000 * 1000);
-	}
-
-	cout << "out of loop" << endl;
-	*/
 
 #ifdef INTEL_EDISON
     std::cout << "EPD_4IN2_test Demo\r\n" << endl;
@@ -94,9 +56,9 @@ int main() {
 		}
 		Paint_NewImage(BlackImage, EPD_4IN2_WIDTH, EPD_4IN2_HEIGHT, 0, WHITE);
 		Paint_SetScale(4);
-		Paint_Clear(WHITE);
 #endif
-#if 0
+#if 1
+		Paint_Clear(WHITE);
 		Paint_DrawPoint(10, 80, BLACK, DOT_PIXEL_1X1, DOT_STYLE_DFT);
 	    Paint_DrawPoint(10, 90, BLACK, DOT_PIXEL_2X2, DOT_STYLE_DFT);
 	    Paint_DrawPoint(10, 100, BLACK, DOT_PIXEL_3X3, DOT_STYLE_DFT);
@@ -121,31 +83,18 @@ int main() {
 	    Paint_DrawString_CN(220, 40, "΢ѩ����", &Font24CN, GRAY2, GRAY3);
 	    Paint_DrawString_CN(220, 80, "΢ѩ����", &Font24CN, GRAY3, GRAY2);
 	    Paint_DrawString_CN(220, 120, "΢ѩ����", &Font24CN, GRAY4, GRAY1);
-#endif
-#if 0
+
 		EPD_4IN2_4GrayDisplay(BlackImage);
+		//it seems if I pause here in the debugger, the screen ends up washed out...
 		DEV_Delay_ms(2000);
 #endif
 
-	//Paint_Clear(WHITE);
-    //EPD_4IN2_4GrayDisplay(gImage_4in2_4Gray1);
-	//DEV_Delay_ms(2000);
-
-	// get current working directory
-	/*
-	char cwd[1024];
-	if(getcwd(cwd, sizeof(cwd)) != NULL) {
-		//runs from /home/root
-		printf("Current working dir: %s\n", cwd);
-	}
-	*/
-	EPD_4IN2_Clear();
-
-	GUI_ReadBmp_4Gray("/media/sdcard/helloWorld/pic/4in2_TEST2.bmp", 0, 0);
+	//EPD_4IN2_Clear();
+ca	Paint_Clear(WHITE);
+	GUI_ReadBmp_4Gray("/media/sdcard/helloWorld/pic/AnimeGirl.bmp", 0, 0);
 	EPD_4IN2_4GrayDisplay(BlackImage);
 	DEV_Delay_ms(1000 * 20);
 
-	EPD_4IN2_Clear();
 #if 0
 	GUI_ReadBmp_4Gray("/media/sdcard/helloWorld/pic/4in2_Scale.bmp", 0, 0);
 	EPD_4IN2_4GrayDisplay(BlackImage);
